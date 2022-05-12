@@ -30,6 +30,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## License
+## Swagger URL
 
-Nest is [MIT licensed](LICENSE).
+http://localhost:3000/api
