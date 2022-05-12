@@ -1,6 +1,6 @@
 export interface ClimaResDto {
-  T: {
-    T: {
+  [T: string]: {
+    [T: string]: {
       manha: ClimaResult;
       tarde: ClimaResult;
       noite: ClimaResult;
