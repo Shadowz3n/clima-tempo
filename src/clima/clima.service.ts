@@ -5,7 +5,7 @@ import { ClimaResDto } from './dto/clima.res.dto';
 
 @Injectable()
 export class ClimaService {
-  private async findGeoCodeByLocal(
+  public async findGeoCodeByLocal(
     local: string,
   ): Promise<ClimaGeocodeResDto[]> {
     const geocode = await instanceInmet.get<ClimaGeocodeResDto[]>(
