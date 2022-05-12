@@ -1,0 +1,24 @@
+name: Develop Deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    env:
+      SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish
+        uses: actions/setup-node@v1
+        with:
+          apiToken: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+          environment: 'develop'
+          node-version: 16
+      - run: npm ci
+      - run: npx cloud test
+      - run: npx cloud deploy develop
